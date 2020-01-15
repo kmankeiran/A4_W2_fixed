@@ -16,7 +16,14 @@ var vm = new Vue({
       { name: "Star Wars The Force Awakens", thumb: "forceawakens.jpg", vidsource: "forceawakens.mp4", description: "yet another star wars movie" },
       { name: "Stranger Things", thumb: "strangerthings.jpg", vidsource: "strangerthings.mp4", description: "don't get lost in the upside down" },
       { name: "Marvel's The Avengers", thumb: "avengers.jpg", vidsource: "avengers.mp4", description: "will they make black widow action figures this time?" }
-    ]
+    ],
+
+
+    videotitle: "video title goes here",
+    vidsource: "",
+    videodescription: "video description here",
+
+    showDetails: false
   },
 
   methods: {
@@ -32,15 +39,21 @@ var vm = new Vue({
       console.log('set prefs here');
     },
 
-    logClicked({ name, description, vidsource }) {
+    showMovieDetails({ name, description, vidsource }) {
       // set the observables / bound data so that the view updates
-     
+      // console,log('show these details: ', movie);
+
+      this.videotitle = name;
+      this.vidsource = vidsource;
+      this.videodescription = description;
+
+      this.showDetails = true;
     },
 
-    scrollBackUp() {
-      window.scrollTo(0, 0);
-      this.showDetails = false;
-      this.videosource = "";
-    }
+    // scrollBackUp() {
+    //   window.scrollTo(0, 0);
+    //   this.showDetails = false;
+    //   this.videosource = "";
+    // }
   }
 });
